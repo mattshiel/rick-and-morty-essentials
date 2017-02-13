@@ -1,18 +1,18 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
+import { SoundboardPage } from '../pages/soundboard/soundboard';
 import { TabsPage } from '../pages/tabs/tabs';
+import { InsultGeneratorPage } from '../pages/insultgenerator/insultgenerator';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
     ContactPage,
-    HomePage,
-    TabsPage
+    TabsPage,
+    SoundboardPage,
+    InsultGeneratorPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -20,10 +20,11 @@ import { TabsPage } from '../pages/tabs/tabs';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
     ContactPage,
-    HomePage,
-    TabsPage
+    TabsPage,
+    SoundboardPage,
+    InsultGeneratorPage
+    
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

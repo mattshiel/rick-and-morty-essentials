@@ -10,40 +10,46 @@ import { MediaPlugin } from 'ionic-native';
 
 export class SoundboardPage {
 
-media: MediaPlugin = new MediaPlugin('/android_asset/www/soundfiles/lick_my_balls.mp3');
+    /* EDIT THESE */
+  title: string = "Soundboard";
+  base_url: string = "http://kalis.me";
+  sounds_url: string = "/sounds";
+  randomColours: boolean = false;
 
-constructor(public navCtrl: NavController, public alertCtrl: AlertController) 
-{
+  media: MediaPlugin = new MediaPlugin('/android_asset/www/soundfiles/lick_my_balls.mp3');
 
-}
-
-ionViewDidEnter() 
-{
-  this.media = new MediaPlugin('/android_asset/www/soundfiles/lick_my_balls.mp3');
-}
-
-showAlert(message) 
-{
-  let alert = this.alertCtrl.create({
-  title: 'Error',
-  subTitle: message,
-  buttons: ['OK']
-});
-
-alert.present();
-}
-
-startPlayback() 
-{
-  try 
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController) 
   {
-    this.media.play();
+
   }
 
-  catch (e) 
+  ionViewDidEnter() 
   {
-    this.showAlert('Could not play recording.');
+    this.media = new MediaPlugin('/android_asset/www/soundfiles/lick_my_balls.mp3');
   }
-}
+
+  showAlert(message) 
+  {
+    let alert = this.alertCtrl.create({
+    title: 'Error',
+    subTitle: message,
+    buttons: ['OK']
+  });
+
+  alert.present();
+  }
+
+  startPlayback() 
+  {
+    try 
+    {
+      this.media.play();
+    }
+
+    catch (e) 
+    {
+      this.showAlert('Could not play recording.');
+    }
+  }
 
 }

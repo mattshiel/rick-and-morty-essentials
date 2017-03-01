@@ -5,16 +5,70 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
-  <h2>Rick and Morty Soundboard</h2>
+  <!--SEARCH BAR-->
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      {{ item }}
+    </ion-item>
+  </ion-list>
 
-  <p>
-    This will contain a soundboard of all your favourite characters.
-  </p>
+  <ion-row class = "row1">
+    <ion-col width-50>
+        <button ion-button medium item-right icon-left color = "hair" (click)="startPlayback()"><ion-icon name="volume-up"></ion-icon>
+          <label>Lick my balls</label>
+        </button>
+    </ion-col>
 
-  <p>
-    <button ion-button block color = "hair" icon-left (click)="startPlayback()"><ion-icon name="volume-up"></ion-icon>Lick my balls!</button>
-  </p>
+    <ion-col width-50>
+        <button ion-button medium item-right icon-left color = "hair" (click)="startPlayback()"><ion-icon name="volume-up"></ion-icon>
+       <label> I like what you got</label>
+        </button>
+    </ion-col>
+  </ion-row>
 
+  <ion-row class = "row2">
+    <ion-col width-50>
+        <button ion-button medium item-right icon-left color = "hair" (click)="startPlayback()"><ion-icon name="volume-up"></ion-icon>
+         <label>My man!</label>
+        </button>
+    </ion-col>
+
+    <ion-col width-50>
+        <button ion-button medium item-right icon-left color = "hair" (click)="startPlayback()"><ion-icon name="volume-up"></ion-icon>
+          <label>Lick my balls</label>
+        </button>
+    </ion-col>
+  </ion-row>
+
+ <ion-row class = "row3">
+    <ion-col width-50>
+        <button ion-button medium item-right icon-left color = "hair" (click)="startPlayback()"><ion-icon name="volume-up"></ion-icon>
+          <label>Lick my balls</label>
+        </button>
+    </ion-col>
+
+    <ion-col width-50>
+        <button ion-button medium item-right icon-left color = "hair" (click)="startPlayback()"><ion-icon name="volume-up"></ion-icon>
+          <label>Lick my balls</label>
+        </button>
+    </ion-col>
+  </ion-row>
+
+ <ion-row class = "row4">
+    <ion-col width-50>
+        <button ion-button medium item-right icon-left color = "hair" (click)="startPlayback()"><ion-icon name="volume-up"></ion-icon>
+          <label>Lick my balls</label>
+        </button>
+    </ion-col>
+
+    <ion-col width-50>
+        <button ion-button medium item-right icon-left color = "hair" (click)="startPlayback()"><ion-icon name="volume-up"></ion-icon>
+          <label>Lick my balls</label>
+        </button>
+    </ion-col>
+  </ion-row>
+  
 </ion-content>

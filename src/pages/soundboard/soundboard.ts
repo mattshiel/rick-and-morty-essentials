@@ -11,11 +11,9 @@ import { MediaPlugin } from 'ionic-native';
 export class SoundboardPage {
 
     /* EDIT THESE */
-  title: string = "Soundboard";
-  base_url: string = "http://kalis.me";
-  sounds_url: string = "/sounds";
-  randomColours: boolean = false;
-
+  title: string = "Rick and Morty Soundboard";
+  base_url: string = "/android_asset/www";
+  sounds_url: string = "/soundfiles";
   media: MediaPlugin = new MediaPlugin('/android_asset/www/soundfiles/lick_my_balls.mp3');
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController) 

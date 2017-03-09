@@ -1,7 +1,7 @@
 
 <ion-header>
   <ion-navbar color = "dark">
-    <ion-title>Rick and Morty Soundboard</ion-title>
+    <ion-title>{{ title }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,6 +9,7 @@
 
   <!--SEARCH BAR-->
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  
   <ion-list>
     <ion-item *ngFor="let item of items">
       {{ item }}

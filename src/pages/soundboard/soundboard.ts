@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-
+import {AngularFire, FirebaseListObservable} from 'angularfire2'; //Imports FireBase
+import { Platform } from 'ionic-angular'; //Imports Platform
 import { NavController, AlertController } from 'ionic-angular';
 import { MediaPlugin } from 'ionic-native';
+import {Http} from '@angular/http'; //Imports HTTP
+//import {Observable} from 'rxjs/Rx';
+//import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'page-soundboard',
@@ -12,19 +16,62 @@ export class SoundboardPage {
 
     /* EDIT THESE */
   title: string = "Rick and Morty Soundboard";
-  base_url: string = "/android_asset/www";
-  sounds_url: string = "/soundfiles";
-  media: MediaPlugin = new MediaPlugin('/android_asset/www/soundfiles/lick_my_balls.mp3');
+  url: string = 'assets/data/soundfiles.html'; 
+  base_url: string = "assets/data";
+  sounds_url: string = 'assets/data/';
+  //media: MediaPlugin = new MediaPlugin('/android_asset/www/soundfiles/lick_my_balls.mp3');
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) 
+  sounds: any = [];
+  media: any = null;
+
+constructor(public http: Http, public alertCtrl: AlertController, private platform: Platform) {
+
+    if (this.platform.is('android')) 
+    {
+        this.url = "/android_asset/www/" + this.url;
+    }
+
+    this.http.get(this.url).subscribe(data => 
+    {
+    
+      let content: string = data.text();
+      let doc: any = document.createElement("html");
+      doc.innerHTML = content;
+
+      let links: any = doc.getElementsByTagName("a");
+
+      for(let link of links) 
+      {
+        let filename: any = link.getAttribute("href");
+
+        if(filename.startsWith("/")) 
+        {
+          filename = this.base_url + filename;
+        }
+
+        else 
+        {
+          filename = this.sounds_url + filename;
+        }
+
+          this.sounds.push
+          ({
+            title: link.innerHTML,
+            file: filename
+          });
+      }
+
+      },
+        
+      err => console.error('There was an error: ' + err),
+      () => console.log('Get request completed')
+    );
+ 
+}
+  /*ionViewDidEnter() 
   {
-
-  }
-
-  ionViewDidEnter() 
-  {
-    this.media = new MediaPlugin('/android_asset/www/soundfiles/lick_my_balls.mp3');
-  }
+    //this.media = new MediaPlugin('/android_asset/www/soundfiles/lick_my_balls.mp3');
+  }*/
 
   showAlert(message) 
   {
@@ -37,10 +84,19 @@ export class SoundboardPage {
   alert.present();
   }
 
-  startPlayback() 
+  play(sound) 
   {
     try 
     {
+      console.log(sound);
+
+      if(this.media) 
+      {
+        this.media.pause();
+      }
+    
+      this.media = new Audio(sound.file);
+      this.media.load();
       this.media.play();
     }
 

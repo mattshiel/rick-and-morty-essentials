@@ -14,3 +14,24 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+@font-face {
+  font-family: 'Dosis-Regular';
+  src: url('../assets/fonts/Dosis-Regular.ttf') format('truetype'), url('../assets/fonts/Dosis-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dosis-SemiBold';
+  src: url('../assets/fonts/Dosis-SemiBold.ttf') format('truetype'), url('../assets/fonts/Dosis-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'schwifty';
+  src: url('../assets/fonts/schwifty.ttf') format('truetype'), url('../assets/fonts/schwifty.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

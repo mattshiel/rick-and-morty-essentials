@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {AngularFire, FirebaseListObservable} from 'angularfire2'; //Imports FireBase
+import { AngularFire, FirebaseListObservable } from 'angularfire2'; //Imports FireBase
 import { Platform } from 'ionic-angular'; //Imports Platform
 import { NavController, AlertController, reorderArray } from 'ionic-angular';
 import { MediaPlugin } from 'ionic-native';
-import {Http} from '@angular/http'; //Imports HTTP
+import { Http } from '@angular/http'; //Imports HTTP
 //import {Observable} from 'rxjs/Rx';
 //import 'rxjs/add/operator/map';
 

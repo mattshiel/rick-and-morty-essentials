@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2'; //Imports FireBase
 import { Platform } from 'ionic-angular'; //Imports Platform
 import { NavController, AlertController, reorderArray } from 'ionic-angular';
 import { MediaPlugin } from 'ionic-native';

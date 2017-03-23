@@ -7,18 +7,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { InsultGeneratorPage } from '../pages/insultgenerator/insultgenerator';
 import { Data } from '../providers/data';
 
-// Import the AF2 Module
-import { AngularFireModule } from 'angularfire2';
- 
-// AF2 Settings
-export const firebaseConfig = {
-  apiKey: "AIzaSyA-w3ldZoCpbxfdQbE750rGALcIAkmUgNg",
-  authDomain: "rick-and-morty-essentials.firebaseapp.com",
-  databaseURL: "https://rick-and-morty-essentials.firebaseio.com",
-  storageBucket: "rick-and-morty-essentials.appspot.com",
-  messagingSenderId: "39604505070"
-};
-
 @NgModule({
   declarations: [
     MyApp,

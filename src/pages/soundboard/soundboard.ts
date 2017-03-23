@@ -4,8 +4,9 @@ import { Platform } from 'ionic-angular'; //Imports Platform
 import { NavController, AlertController, reorderArray } from 'ionic-angular';
 import { MediaPlugin } from 'ionic-native';
 import { Http } from '@angular/http'; //Imports HTTP
-//import {Observable} from 'rxjs/Rx';
-//import 'rxjs/add/operator/map';
+import { FormControl } from '@angular/forms';
+import 'rxjs/add/operator/debounceTime';
+import { Data } from '../../providers/data';
 
 @Component({
   selector: 'page-soundboard',
@@ -14,7 +15,7 @@ import { Http } from '@angular/http'; //Imports HTTP
 
 export class SoundboardPage {
 
-    /* EDIT THESE */
+  /* EDIT THESE IF FILE PATHS CHANGE*/
   title: string = "Rick and Morty Soundboard";
   url: string = "assets/data/soundfiles.html"; 
   base_url: string = "assets/data";
@@ -22,10 +23,13 @@ export class SoundboardPage {
   
   //media: MediaPlugin = new MediaPlugin('/android_asset/www/soundfiles/lick_my_balls.mp3');
 
+  searchTerm: string = '';
+  searchControl: FormControl;
+  searching: any = false;
   sounds: any = [];
   media: any = null;
 
-constructor(public http: Http, public alertCtrl: AlertController, private platform: Platform) {
+constructor(public http: Http, public alertCtrl: AlertController, private platform: Platform, public navCtrl: NavController, public dataService: Data) {
 
     /*Pushes the sound title and file path to the array
     if (this.platform.is('android')) 
@@ -47,7 +51,7 @@ constructor(public http: Http, public alertCtrl: AlertController, private platfo
 
       let links: any = doc.getElementsByTagName("a");
 
-      /*Looping over */
+      /*Looping over*/
       for(let link of links) 
       {
         let filename: any = link.getAttribute("href");
@@ -75,12 +79,44 @@ constructor(public http: Http, public alertCtrl: AlertController, private platfo
       err => console.error('There was an error: ' + err),
       () => console.log('Get request completed')
     );
+
+     this.searchControl = new FormControl();
  
 }
+
+  filterItems(searchTerm)
+  {
+      return this.sounds.filter((sound) => {
+      return sound.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+    });     
+ 
+  }
   /*ionViewDidEnter() 
   {
     //this.media = new MediaPlugin('/android_asset/www/soundfiles/lick_my_balls.mp3');
   }*/
+
+   
+  setFilteredItems()
+  {
+      this.sounds = this.dataService.filterItems(this.searchTerm);
+  }
+
+  ionViewDidLoad()
+  {
+        this.setFilteredItems();
+ 
+        this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
+          
+        this.searching = false;
+        this.setFilteredItems();
+ 
+        });
+  }
+
+   onSearchInput(){
+      this.searching = true;
+    }
 
   showAlert(message) 
   {

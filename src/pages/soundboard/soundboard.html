@@ -7,7 +7,15 @@
 <ion-content>
 
 <!--SEARCH BAR-->
-<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+<ion-searchbar 
+  [(ngModel)]="searchTerm" 
+  [formControl]="searchControl"
+  (ionInput)="onSearchInput()">
+</ion-searchbar>
+
+    <div *ngIf="searching" class="spinner-container">
+        <ion-spinner></ion-spinner>
+    </div>
 
 <!--List for sounds-->
 <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">

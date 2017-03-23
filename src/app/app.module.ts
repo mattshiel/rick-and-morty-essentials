@@ -5,6 +5,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { SoundboardPage } from '../pages/soundboard/soundboard';
 import { TabsPage } from '../pages/tabs/tabs';
 import { InsultGeneratorPage } from '../pages/insultgenerator/insultgenerator';
+import { Data } from '../providers/data';
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
@@ -38,6 +39,6 @@ export const firebaseConfig = {
     InsultGeneratorPage
     
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Data]
 })
 export class AppModule {}

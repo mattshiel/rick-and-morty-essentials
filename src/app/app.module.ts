@@ -4,7 +4,7 @@ import { MyApp } from './app.component';
 import { ContactPage } from '../pages/contact/contact';
 import { SoundboardPage } from '../pages/soundboard/soundboard';
 import { TabsPage } from '../pages/tabs/tabs';
-import { InsultGeneratorPage } from '../pages/insultgenerator/insultgenerator';
+import { QuizPage } from '../pages/quiz/quiz';
 import { Data } from '../providers/data';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { Data } from '../providers/data';
     ContactPage,
     TabsPage,
     SoundboardPage,
-    InsultGeneratorPage
+    QuizPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -24,7 +24,7 @@ import { Data } from '../providers/data';
     ContactPage,
     TabsPage,
     SoundboardPage,
-    InsultGeneratorPage
+    QuizPage
     
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Data]

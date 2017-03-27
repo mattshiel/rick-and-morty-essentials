@@ -3,10 +3,10 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-insultgenerator',
-  templateUrl: 'insultgenerator.html'
+  selector: 'page-quiz',
+  templateUrl: 'quiz.html'
 })
-export class InsultGeneratorPage {
+export class QuizPage {
 
   constructor(public navCtrl: NavController) {
 

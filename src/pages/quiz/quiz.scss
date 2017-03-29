@@ -1,4 +1,39 @@
-    .title
+   .title
     {
         font-family: 'schwifty'; 
     }
+
+ 
+    ion-slide {
+        align-items: flex-start;
+    }
+
+    ion-item {
+        margin-bottom: 5px;
+        font-size: 1.2em;
+    }
+
+    flash-card {
+
+        img {
+            width: 70%;
+            height: auto;
+        }
+    }
+
+    .start-slide {
+        justify-content: center;
+        align-items: center;
+
+        button {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+    }
+
+    h3 {
+          color: #B75332;
+           font-family: 'schwifty'; 
+    }
+ 
+

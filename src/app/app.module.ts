@@ -6,6 +6,8 @@ import { SoundboardPage } from '../pages/soundboard/soundboard';
 import { TabsPage } from '../pages/tabs/tabs';
 import { QuizPage } from '../pages/quiz/quiz';
 import { Data } from '../providers/data';
+import { QuizData } from '../providers/quiz-data';
+import { FlashCardComponent } from '../components/flash-card/flash-card';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,8 @@ import { Data } from '../providers/data';
     ContactPage,
     TabsPage,
     SoundboardPage,
-    QuizPage
+    QuizPage,
+    FlashCardComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -24,9 +27,8 @@ import { Data } from '../providers/data';
     ContactPage,
     TabsPage,
     SoundboardPage,
-    QuizPage
-    
+    QuizPage  
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Data]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Data, QuizData]
 })
 export class AppModule {}

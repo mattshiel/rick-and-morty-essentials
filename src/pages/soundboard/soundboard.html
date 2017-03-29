@@ -22,7 +22,7 @@
 
   <!--Buttons generated until ngFor cannot find any more sounds-->
   <button ion-item no-lines detail-none *ngFor="let sound of sounds" (click)="play(sound)">
-    <h2>{{ sound.title }}</h2> 
+    <h1>{{ sound.title }}</h1>
     <ion-icon  class="volumeIcon" name="volume-up" item-left></ion-icon>
   </button>
 

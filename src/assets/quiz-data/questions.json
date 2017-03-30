@@ -6,17 +6,17 @@
            "flashCardFront": "<img src='assets/images/santa.png'/>",
             "flashCardBack": "ruben",
             "flashCardFlipped": false,
-            "questionText": "who is this character?",
+            "questionText": "name this character",
             "answers": 
             [
                 {"answer": "ruben", "correct": true, "selected": false},
                 {"answer": "poncho", "correct": false, "selected": false},
-                {"answer": "jacob", "correct": false, "selected": false}
+                {"answer": "terry", "correct": false, "selected": false}
             ]
         },
 
         {
-           "flashCardFront": "<img src='assets/images/randm.png'/>",
+           "flashCardFront": "<img src='assets/images/ram.png'/>",
             "flashCardBack": "close rick-counters of the rick kind",
             "flashCardFlipped": false,
             "questionText": "what is the highest rated episode?",
@@ -35,9 +35,9 @@
             "questionText": "what is this?",
             "answers": 
             [
-                {"answer": "a regular old plumbus", "correct": false, "selected": false},
+                {"answer": "a regular old plumbus", "correct": true, "selected": false},
                 {"answer": "a dinglebop", "correct": false, "selected": false},
-                {"answer": "a grumbo", "correct": true, "selected": false}
+                {"answer": "a grumbo", "correct": false, "selected": false}
             ]
         }
  

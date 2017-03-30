@@ -40,9 +40,22 @@
         }
     }
 
-    h3 {
+        .end-slide {
+        justify-content: center;
+        align-items: center;
+
+        button {
+            font-size: 1.3em;
+            font-weight: bold;
+            background-color: #B75332;
+        }
+    }
+
+    h3, h2 {
           color: #B75332;
            font-family: 'bearhug'; 
     }
+
+    
  
 

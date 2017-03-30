@@ -13,6 +13,7 @@ export class QuizPage {
  
     hasAnswered: boolean = false;
     score: number = 0;
+    rank: string = "";
  
     slideOptions: any;
     questions: any;
@@ -39,6 +40,8 @@ export class QuizPage {
             });     
  
             this.questions = data;
+
+            this.slides.lockSwipeToNext(true);
  
         });
  
@@ -61,7 +64,9 @@ export class QuizPage {
   }
  
     nextSlide(){
+        this.slides.lockSwipes(false);
         this.slides.slideNext();
+        this.slides.lockSwipes(true);
     }
  
     selectAnswer(answer, question){
@@ -72,7 +77,6 @@ export class QuizPage {
  
         if(answer.correct){
             this.score++;
-            
         }
  
         setTimeout(() => {
@@ -81,6 +85,27 @@ export class QuizPage {
             answer.selected = false;
             question.flashCardFlipped = false;
         }, 1500);
+
+        
+        if(this.score <= 0)
+        {
+            this.rank = "jerry";
+        }
+
+        else if(this.score == 1)
+        {
+            this.rank = "morty";
+        }
+
+        else if(this.score == 2)
+        {
+            this.rank = "gazorpazorp";
+        }
+
+        else
+        {
+            this.rank = "rick";
+        }
     }
  
     randomizeAnswers(rawAnswers: any[]): any[] {
@@ -97,8 +122,10 @@ export class QuizPage {
     }
  
     restartQuiz(){
+        this.slides.lockSwipes(false); //Unlock swiping so you can go back to the start
         this.score = 0;
-        this.slides.slideTo(1, 1000);
+        this.slides.slideTo(0, 1000);
+        this.slides.lockSwipes(true); //Lock swiping again to stop user from going through the quiz
     }
  
 }

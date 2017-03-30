@@ -6,6 +6,7 @@
 
 <ion-content>
  
+    <!--Creates a slider that cannot be transitioned with gestures-->
     <ion-slides #slides [options]="slideOptions">
  
         <!-- Opening Start Button -->
@@ -39,10 +40,11 @@
         </ion-slide>
  
          <!-- Final Score and Reset Page -->
-        <ion-slide>
-            <h2>Final Score: {{score}}</h2>
+        <ion-slide class="end-slide">
+            <h2>final score: {{score}}</h2>
+            <h2>final ranking: {{rank}}</h2>
  
-            <button (click)="restartQuiz()" (click) = "presentLoadingRestart()" ion-button full color="primary">Start Again</button>
+            <button (click)="restartQuiz()" (click) = "presentLoadingRestart()" ion-button round>Start Again</button>
  
         </ion-slide>
  

@@ -10,13 +10,13 @@
  
         <!-- Opening Start Button -->
         <ion-slide class="start-slide">
-            <button ion-button color="primary" (click)="nextSlide()">Start!</button>
+            <button ion-button round (click)="nextSlide()" (click) = "presentLoadingStart()">Start!</button>
         </ion-slide>
  
          <!-- Loop through cards - Images and Answers -->
         <ion-slide *ngFor="let question of questions; let i = index;">
  
-            <h3>Question {{i+1}}</h3>
+            
  
               <flash-card [isFlipped]="question.flashCardFlipped">
                   <div class="flash-card-front" [innerHTML]="question.flashCardFront"></div>
@@ -29,7 +29,7 @@
  
                 <ion-item *ngFor="let answer of question.answers; let i = index;">
  
-                    <ion-label>{{i+1}}. {{answer.answer}}</ion-label>
+                    <ion-label>{{answer.answer}}</ion-label>
                     <ion-radio (click)="selectAnswer(answer, question)" [checked]="answer.selected" [disabled]="hasAnswered"></ion-radio>
  
                 </ion-item>
@@ -42,7 +42,7 @@
         <ion-slide>
             <h2>Final Score: {{score}}</h2>
  
-            <button (click)="restartQuiz()" ion-button full color="primary">Start Again</button>
+            <button (click)="restartQuiz()" (click) = "presentLoadingRestart()" ion-button full color="primary">Start Again</button>
  
         </ion-slide>
  

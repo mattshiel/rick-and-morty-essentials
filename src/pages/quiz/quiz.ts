@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { QuizData } from '../../providers/quiz-data';
+import { LoadingController } from 'ionic-angular';
  
 @Component({
   selector: 'page-quiz',
@@ -17,7 +18,7 @@ export class QuizPage {
     questions: any;
     title: string = "Rick and Morty Quiz";
  
- constructor(public navCtrl: NavController, public dataService: QuizData) {
+ constructor(public navCtrl: NavController, public dataService: QuizData, public loadingCtrl: LoadingController) {
  
         this.slideOptions = {
             onlyExternal: true
@@ -42,6 +43,22 @@ export class QuizPage {
         });
  
     }
+
+    presentLoadingStart() {
+    let loader = this.loadingCtrl.create({
+      content: "Inserting Seeds...",
+      duration: 500
+    });
+    loader.present();
+  }
+
+    presentLoadingRestart() {
+    let loader = this.loadingCtrl.create({
+      content: "Squanching...",
+      duration: 1000
+    });
+    loader.present();
+  }
  
     nextSlide(){
         this.slides.slideNext();
@@ -55,6 +72,7 @@ export class QuizPage {
  
         if(answer.correct){
             this.score++;
+            
         }
  
         setTimeout(() => {
@@ -62,7 +80,7 @@ export class QuizPage {
             this.nextSlide();
             answer.selected = false;
             question.flashCardFlipped = false;
-        }, 3000);
+        }, 1500);
     }
  
     randomizeAnswers(rawAnswers: any[]): any[] {

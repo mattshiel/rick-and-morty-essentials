@@ -1,4 +1,6 @@
-   .title
+
+
+    .title
     {
         font-family: 'schwifty'; 
     }
@@ -11,6 +13,12 @@
     ion-item {
         margin-bottom: 5px;
         font-size: 1.2em;
+    }
+
+    ion-label {
+        color: #B75332;
+        font-family: 'bearhug'; 
+        font-size: 18px;
     }
 
     flash-card {
@@ -28,12 +36,13 @@
         button {
             font-size: 1.3em;
             font-weight: bold;
+            background-color: #B75332;
         }
     }
 
     h3 {
           color: #B75332;
-           font-family: 'schwifty'; 
+           font-family: 'bearhug'; 
     }
  
 

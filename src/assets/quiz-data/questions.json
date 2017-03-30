@@ -4,40 +4,40 @@
  
         {
            "flashCardFront": "<img src='assets/images/santa.png'/>",
-            "flashCardBack": "Helicopter",
+            "flashCardBack": "ruben",
             "flashCardFlipped": false,
-            "questionText": "What is this?",
+            "questionText": "who is this character?",
             "answers": 
             [
-                {"answer": "Helicopter", "correct": true, "selected": false},
-                {"answer": "Plane", "correct": false, "selected": false},
-                {"answer": "Truck", "correct": false, "selected": false}
+                {"answer": "ruben", "correct": true, "selected": false},
+                {"answer": "poncho", "correct": false, "selected": false},
+                {"answer": "jacob", "correct": false, "selected": false}
             ]
         },
 
         {
-           "flashCardFront": "<img src='assets/images/helicopter.png'/>",
-            "flashCardBack": "Plane",
+           "flashCardFront": "<img src='assets/images/randm.png'/>",
+            "flashCardBack": "close rick-counters of the rick kind",
             "flashCardFlipped": false,
-            "questionText": "What is this?",
+            "questionText": "what is the highest rated episode?",
             "answers": 
             [
-                {"answer": "Helicopter", "correct": false, "selected": false},
-                {"answer": "Plane", "correct": true, "selected": false},
-                {"answer": "Truck", "correct": false, "selected": false}
+                {"answer": "total rickall", "correct": false, "selected": false},
+                {"answer": "close rick-counters of the rick kind", "correct": true, "selected": false},
+                {"answer": "rixty minutes", "correct": false, "selected": false}
             ]
         },
 
         {
-            "flashCardFront": "<img src='assets/images/helicopter.png'/>",
-            "flashCardBack": "Truck",
+            "flashCardFront": "<img src='assets/images/plumbus.png'/>",
+            "flashCardBack": "a regular old plumbus",
             "flashCardFlipped": false,
-            "questionText": "What is this?",
+            "questionText": "what is this?",
             "answers": 
             [
-                {"answer": "Helicopter", "correct": false, "selected": false},
-                {"answer": "Plane", "correct": false, "selected": false},
-                {"answer": "Truck", "correct": true, "selected": false}
+                {"answer": "a regular old plumbus", "correct": false, "selected": false},
+                {"answer": "a dinglebop", "correct": false, "selected": false},
+                {"answer": "a grumbo", "correct": true, "selected": false}
             ]
         }
  

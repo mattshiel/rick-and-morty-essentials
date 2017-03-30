@@ -7,10 +7,11 @@
 <ion-content>
 
 <!--SEARCH BAR-->
-<ion-searchbar 
+<ion-searchbar
   [(ngModel)]="searchTerm" 
   [formControl]="searchControl"
-  (ionInput)="onSearchInput()">
+  (ionInput)="onSearchInput()"
+  placeholder = "search sounds">
 </ion-searchbar>
 
     <div *ngIf="searching" class="spinner-container">

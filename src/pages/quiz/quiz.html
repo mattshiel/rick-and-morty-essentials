@@ -11,7 +11,7 @@
  
         <!-- Opening Start Button -->
         <ion-slide class="start-slide">
-            <button ion-button round (click)="nextSlide()" (click) = "presentLoadingStart()">Start!</button>
+            <button ion-button (click)="nextSlide()" (click) = "presentLoadingStart()" (click) = "playStart()">Start</button>
         </ion-slide>
  
          <!-- Loop through cards - Images and Answers -->
@@ -44,7 +44,7 @@
             <h2>final score: {{score}}</h2>
             <h2>final ranking: {{rank}}</h2>
  
-            <button (click)="restartQuiz()" (click) = "presentLoadingRestart()" ion-button round>Start Again</button>
+            <button (click)="restartQuiz()" (click) = "presentLoadingRestart()" ion-button >Retry</button>
  
         </ion-slide>
  

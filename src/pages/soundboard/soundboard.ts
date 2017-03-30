@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular'; //Imports Platform
 import { NavController, AlertController, reorderArray } from 'ionic-angular';
-import { MediaPlugin } from 'ionic-native';
 import { Http } from '@angular/http'; //Imports HTTP
 import { FormControl } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';

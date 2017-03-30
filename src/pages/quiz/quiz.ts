@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { QuizData } from '../../providers/quiz-data';
 import { LoadingController } from 'ionic-angular';
+import { MediaPlugin } from 'ionic-native';
+import { Platform } from 'ionic-angular'; //Imports Platform
  
 @Component({
   selector: 'page-quiz',
@@ -14,12 +16,13 @@ export class QuizPage {
     hasAnswered: boolean = false;
     score: number = 0;
     rank: string = "";
+    media: any;
  
     slideOptions: any;
     questions: any;
     title: string = "Rick and Morty Quiz";
  
- constructor(public navCtrl: NavController, public dataService: QuizData, public loadingCtrl: LoadingController) {
+ constructor(public navCtrl: NavController, public dataService: QuizData, public loadingCtrl: LoadingController,private platform: Platform) {
  
         this.slideOptions = {
             onlyExternal: true
@@ -47,6 +50,16 @@ export class QuizPage {
  
     }
 
+    ionViewDidEnter() 
+    {
+        this.media = new MediaPlugin('/android_asset/www/assets/data/sounds/doyoufeelit.mp3');
+    }
+
+    playStart()
+    {
+        this.media.play();
+    }
+
     presentLoadingStart() {
     let loader = this.loadingCtrl.create({
       content: "Inserting Seeds...",
@@ -67,6 +80,11 @@ export class QuizPage {
         this.slides.lockSwipes(false);
         this.slides.slideNext();
         this.slides.lockSwipes(true);
+
+        if(this.slides.isEnd(true))
+        {
+            this.media.stop();
+        }
     }
  
     selectAnswer(answer, question){

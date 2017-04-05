@@ -17,7 +17,14 @@ export class QuizPage {
     score: number = 0;
     rank: string = "";
     media: any;
- 
+    /*media:  MediaPlugin[] = [
+                                new MediaPlugin('/android_asset/www/assets/data/sounds/doyoufeelit.mp3'), 
+                                new MediaPlugin('/android_asset/www/assets/data/sounds/moonmen.mp3'),
+                                new MediaPlugin('/android_asset/www/assets/data/sounds/hurt.mp3'),
+                                new MediaPlugin('/android_asset/www/assets/data/sounds/remix.mp3')
+                            ];*/
+    randomNum: number;
+    mediaSong: any;
     slideOptions: any;
     questions: any;
     title: string = "Rick and Morty Quiz";
@@ -44,15 +51,23 @@ export class QuizPage {
  
             this.questions = data;
 
-            this.slides.lockSwipeToNext(true);
+            this.slides.lockSwipeToNext(true);//Initially lock swiping forward on "Start" slide
  
         });
  
     }
 
+    randomIntFromInterval(min,max)
+    {
+        return Math.floor(Math.random()*(max-min+1)+min);
+    }
+
     ionViewDidEnter() 
     {
-        this.media = new MediaPlugin('/android_asset/www/assets/data/sounds/doyoufeelit.mp3');
+        /*this.randomNum = this.randomIntFromInterval(0, 3);
+        this.mediaSong = this.media[this.randomNum];*/
+
+        this.media = new MediaPlugin('/android_asset/www/assets/data/sounds/remix.mp3')
     }
 
     playStart()
@@ -77,14 +92,9 @@ export class QuizPage {
   }
  
     nextSlide(){
-        this.slides.lockSwipes(false);
+        this.slides.lockSwipes(false);//Unlock swiping so you can go forward a slide
         this.slides.slideNext();
-        this.slides.lockSwipes(true);
-
-        if(this.slides.isEnd(true))
-        {
-            this.media.stop();
-        }
+        this.slides.lockSwipes(true);//Lock swiping so you can't skip forward or go backwards a slide
     }
  
     selectAnswer(answer, question){
@@ -142,6 +152,9 @@ export class QuizPage {
     restartQuiz(){
         this.slides.lockSwipes(false); //Unlock swiping so you can go back to the start
         this.score = 0;
+        this.media.stop();
+        /*this.randomNum = this.randomIntFromInterval(0, 2);
+        this.mediaSong = this.media[this.randomNum];*/
         this.slides.slideTo(0, 1000);
         this.slides.lockSwipes(true); //Lock swiping again to stop user from going through the quiz
     }

@@ -29,6 +29,6 @@ import { FlashCardComponent } from '../components/flash-card/flash-card';
     SoundboardPage,
     QuizPage  
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Data, QuizData]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Data, QuizData] //Added providers for the soundboard and quiz
 })
 export class AppModule {}

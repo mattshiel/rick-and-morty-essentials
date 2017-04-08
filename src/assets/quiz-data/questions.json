@@ -41,9 +41,9 @@
             ]
         },
 
-         {
+        {
             "flashCardFront": "<img src='assets/images/rick4.png'/>",
-            "flashCardBack": "beth",
+            "flashCardBack": "destiny",
             "flashCardFlipped": false,
             "questionText": "who was rick's love interest?",
             "answers": 
@@ -54,7 +54,7 @@
             ]
         },
 
-                 {
+        {
             "flashCardFront": "<img src='assets/images/jerry1.png'/>",
             "flashCardBack": "beth",
             "flashCardFlipped": false,
@@ -65,6 +65,35 @@
                 {"answer": "gary", "correct": false, "selected": false},
                 {"answer": "beth", "correct": true, "selected": false}
             ]
-        }
+        },
+
+        {
+            "flashCardFront": "<img src='assets/images/evilmorty.png'/>",
+            "flashCardBack": "twenty-seven",
+            "flashCardFlipped": false,
+            "questionText": "how many know ricks did evil morty kill?",
+            "answers": 
+            [
+                {"answer": "twenty-five", "correct": false, "selected": false},
+                {"answer": "twenty-six", "correct": false, "selected": false},
+                {"answer": "twenty-seven", "correct": true, "selected": false}
+            ]
+        },
+
+
+        {
+            "flashCardFront": "<img src='assets/images/meeseeks1.png'/>",
+            "flashCardBack": "two",
+            "flashCardFlipped": false,
+            "questionText": "how many strokes did Jerry want off his golf swing?",
+            "answers": 
+            [
+                {"answer": "one", "correct": false, "selected": false},
+                {"answer": "two", "correct": true, "selected": false},
+                {"answer": "three", "correct": false, "selected": false}
+            ]
+        },
+
+
     ]
 }

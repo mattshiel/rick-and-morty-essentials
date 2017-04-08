@@ -39,7 +39,32 @@
                 {"answer": "a dinglebop", "correct": false, "selected": false},
                 {"answer": "a grumbo", "correct": false, "selected": false}
             ]
+        },
+
+         {
+            "flashCardFront": "<img src='assets/images/rick4.png'/>",
+            "flashCardBack": "beth",
+            "flashCardFlipped": false,
+            "questionText": "who was rick's love interest?",
+            "answers": 
+            [
+                {"answer": "destiny", "correct": true, "selected": false},
+                {"answer": "fate", "correct": false, "selected": false},
+                {"answer": "future", "correct": false, "selected": false}
+            ]
+        },
+
+                 {
+            "flashCardFront": "<img src='assets/images/jerry1.png'/>",
+            "flashCardBack": "beth",
+            "flashCardFlipped": false,
+            "questionText": "jerry is married to?",
+            "answers": 
+            [
+                {"answer": "sandy", "correct": false, "selected": false},
+                {"answer": "gary", "correct": false, "selected": false},
+                {"answer": "beth", "correct": true, "selected": false}
+            ]
         }
- 
     ]
 }

@@ -1,11 +1,4 @@
 {
-    //Questions JSON
-    //FORMAT
-    //flashCardFront: The front image on the flashcard
-    //flashCardBack: The text on the back of the flashcard
-    //flashCardFlipped: True/False
-    //questionText: Question text
-    //answers: 3 variables, answer, correct, selected
     "questions": 
     [
  
@@ -100,5 +93,6 @@
             ]
         }
 
+ 
     ]
 }

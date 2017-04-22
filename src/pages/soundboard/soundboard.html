@@ -6,7 +6,9 @@
 
 <ion-content>
 
-<!--SEARCH BAR-->
+<!--SEARCH BAR--> 
+<!--Binds the view into the model-->
+<!--Accesses the form control-->
 <ion-searchbar
   [(ngModel)]="searchTerm" 
   [formControl]="searchControl"
@@ -14,6 +16,7 @@
   placeholder = "search sounds">
 </ion-searchbar>
 
+    <!--Adds a spinning animation for searching-->
     <div *ngIf="searching" class="spinner-container">
         <ion-spinner></ion-spinner>
     </div>

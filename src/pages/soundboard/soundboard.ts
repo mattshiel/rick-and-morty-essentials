@@ -43,25 +43,25 @@ constructor(public http: Http, public alertCtrl: AlertController, private platfo
     this.http.get(this.url).subscribe(data => 
     {
     
-      let content: string = data.text();
-      let doc: any = document.createElement("html");
+      let content: string = data.text(); 
+      let doc: any = document.createElement("html"); //Creating a html document
       doc.innerHTML = content;
 
-      let links: any = doc.getElementsByTagName("a");
+      let links: any = doc.getElementsByTagName("a"); //Getting the name of the sound in the link tag
 
       /*Looping over*/
       for(let link of links) 
       {
-        let filename: any = link.getAttribute("href");
+        let filename: any = link.getAttribute("href"); //Gets filename as referenced in the href tag
 
         if(filename.startsWith("/")) 
         {
-          filename = this.base_url + filename;
+          filename = this.base_url + filename; //Joining strings to create the filename
         }
 
         else 
         {
-          filename = this.sounds_url + filename;
+          filename = this.sounds_url + filename;  //Joining strings to create the filename
         }
 
           /*Pushes the sound title and file path to the array*/

@@ -1,13 +1,13 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { ContactPage } from '../pages/contact/contact';
-import { SoundboardPage } from '../pages/soundboard/soundboard';
+import { ContactPage } from '../pages/contact/contact'; //Tab page for the contact page
+import { SoundboardPage } from '../pages/soundboard/soundboard'; //Tab page for the soundboard
 import { TabsPage } from '../pages/tabs/tabs';
-import { QuizPage } from '../pages/quiz/quiz';
-import { Data } from '../providers/data';
-import { QuizData } from '../providers/quiz-data';
-import { FlashCardComponent } from '../components/flash-card/flash-card';
+import { QuizPage } from '../pages/quiz/quiz'; //Tab page for the quiz
+import { Data } from '../providers/data'; //Soundboard data provider
+import { QuizData } from '../providers/quiz-data'; //Quiz data provider
+import { FlashCardComponent } from '../components/flash-card/flash-card'; //Flashcard component
 
 @NgModule({
   declarations: [
@@ -29,6 +29,6 @@ import { FlashCardComponent } from '../components/flash-card/flash-card';
     SoundboardPage,
     QuizPage  
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Data, QuizData]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Data, QuizData] //Added providers for the soundboard and quiz
 })
 export class AppModule {}

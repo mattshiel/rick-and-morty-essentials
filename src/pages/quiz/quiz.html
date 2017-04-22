@@ -18,16 +18,19 @@
         <ion-slide *ngFor="let question of questions; let i = index;">
  
             
- 
+            <!-- Creating a flash card that is not flipped with divs to hold front and back information-->
               <flash-card [isFlipped]="question.flashCardFlipped">
                   <div class="flash-card-front" [innerHTML]="question.flashCardFront"></div>
                   <div class="flash-card-back" [innerHTML]="question.flashCardBack"></div>
               </flash-card>
- 
+            
+            <!-- Question -->
             <h3>{{question.questionText}}</h3>
- 
+            
+            <!-- answers list -->
             <ion-list no-lines radio-group>
- 
+                
+                <!-- Populate the list of answers until there are no more answers -->
                 <ion-item *ngFor="let answer of question.answers; let i = index;">
  
                     <ion-label>{{answer.answer}}</ion-label>
@@ -43,7 +46,8 @@
         <ion-slide class="end-slide">
             <h2>final score: {{score}}</h2>
             <h2>final ranking: {{rank}}</h2>
- 
+            
+            <!-- Restart Button -->
             <button (click)="restartQuiz()" (click) = "presentLoadingRestart()" ion-button >Retry</button>
  
         </ion-slide>

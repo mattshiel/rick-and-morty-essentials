@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { QuizData } from '../../providers/quiz-data';
 import { LoadingController } from 'ionic-angular';
-import { MediaPlugin } from 'ionic-native';
+import { MediaPlugin } from 'ionic-native'; //Ionic native media
 import { Platform } from 'ionic-angular'; //Imports Platform
  
 @Component({
@@ -11,18 +11,13 @@ import { Platform } from 'ionic-angular'; //Imports Platform
 })
 export class QuizPage {
  
+    //We use different decorators (ViewChild) because we have different number of instances of the components that we want to select.
     @ViewChild('slides') slides: any;
  
     hasAnswered: boolean = false;
     score: number = 0;
     rank: string = "";
     media: any;
-    /*media:  MediaPlugin[] = [
-                                new MediaPlugin('/android_asset/www/assets/data/sounds/doyoufeelit.mp3'), 
-                                new MediaPlugin('/android_asset/www/assets/data/sounds/moonmen.mp3'),
-                                new MediaPlugin('/android_asset/www/assets/data/sounds/hurt.mp3'),
-                                new MediaPlugin('/android_asset/www/assets/data/sounds/remix.mp3')
-                            ];*/
     randomNum: number;
     mediaSong: any;
     slideOptions: any;
@@ -37,15 +32,18 @@ export class QuizPage {
  
     }
  
+    //The view is loaded and the DOM is available
     ionViewDidLoad() {
- 
+        
+        //Loading data from QuizData provider
         this.dataService.load().then((data) => {
- 
+            
+            //map converts the result into a JSON decoded version of the result
             data.map((question) => {
  
-                let originalOrder = question.answers;
-                question.answers = this.randomizeAnswers(originalOrder);
-                return question;
+                let originalOrder = question.answers; //Setting an original order so they can be randomized
+                question.answers = this.randomizeAnswers(originalOrder); //Randomize the original order
+                return question; //Return the result differently everytime quiz is repeated
  
             });     
  
@@ -57,54 +55,68 @@ export class QuizPage {
  
     }
 
+    /*
+    This function is for randomising numbers
+
     randomIntFromInterval(min,max)
     {
-        return Math.floor(Math.random()*(max-min+1)+min);
+        return Math.floor(Math.random()*(max-min+1)+min); //
     }
+    */
 
+    //View is active
     ionViewDidEnter() 
     {
         /*this.randomNum = this.randomIntFromInterval(0, 3);
         this.mediaSong = this.media[this.randomNum];*/
 
-        this.media = new MediaPlugin('/android_asset/www/assets/data/sounds/remix.mp3')
+        this.media = new MediaPlugin('/android_asset/www/assets/data/sounds/remix.mp3') //Creating an instance of the media plugin and setting the song for the quiz
     }
 
     playStart()
     {
-        this.media.play();
+        this.media.play(); //Plays whatever is stored in media
     }
 
-    presentLoadingStart() {
-    let loader = this.loadingCtrl.create({
-      content: "Inserting Seeds...",
-      duration: 500
-    });
-    loader.present();
-  }
+    //Creates a loading alert for when the quiz starts
+    presentLoadingStart() 
+    {
+        let loader = this.loadingCtrl.create({
+        content: "Inserting Seeds...",
+        duration: 500
+        });
+        loader.present();
+    }
 
-    presentLoadingRestart() {
-    let loader = this.loadingCtrl.create({
-      content: "Squanching...",
-      duration: 1000
-    });
-    loader.present();
-  }
+  //Creates a loading alert for when the quiz restarts
+    presentLoadingRestart()
+    {
+        let loader = this.loadingCtrl.create({
+        content: "Squanching...",
+        duration: 1000
+        });
+        loader.present();
+    }
  
-    nextSlide(){
+
+    nextSlide()
+    {
         this.slides.lockSwipes(false);//Unlock swiping so you can go forward a slide
-        this.slides.slideNext();
+        this.slides.slideNext(); //Go to the next slide
         this.slides.lockSwipes(true);//Lock swiping so you can't skip forward or go backwards a slide
     }
  
-    selectAnswer(answer, question){
+    //Gets whether the answer is correct or false, sets the timeout for the flip animation
+    selectAnswer(answer, question)
+    {
  
         this.hasAnswered = true;
         answer.selected = true;
         question.flashCardFlipped = true;
  
-        if(answer.correct){
-            this.score++;
+        if(answer.correct)
+        {
+            this.score++; //Incerement score by one everytime a correct answer is selected
         }
  
         setTimeout(() => {
@@ -114,8 +126,7 @@ export class QuizPage {
             question.flashCardFlipped = false;
         }, 1500);
 
-        
-        if(this.score <= 0)
+         if(this.score <= 0)
         {
             this.rank = "jerry";
         }
@@ -134,8 +145,35 @@ export class QuizPage {
         {
             this.rank = "rick";
         }
+
+        //Score system
+        /*if(this.score <= 0)
+        {
+            this.rank = "jerry";
+        }
+
+        else if(this.score > 0 && this.score <=2)
+        {
+            this.rank = "morty";
+        }
+
+        else if(this.score >=3 && this.score <=4)
+        {
+            this.rank = "beth";
+        }
+
+        else if(this.score >=5 && this.score <=7)
+        {
+            this.rank = "gazorpazorp";
+        }
+
+        else
+        {
+            this.rank = "rick";
+        }*/
     }
- 
+    
+    //Randomises answers and returns array
     randomizeAnswers(rawAnswers: any[]): any[] {
  
         for (let i = rawAnswers.length - 1; i > 0; i--) {
@@ -148,13 +186,11 @@ export class QuizPage {
         return rawAnswers;
  
     }
- 
+    
     restartQuiz(){
         this.slides.lockSwipes(false); //Unlock swiping so you can go back to the start
         this.score = 0;
         this.media.stop();
-        /*this.randomNum = this.randomIntFromInterval(0, 2);
-        this.mediaSong = this.media[this.randomNum];*/
         this.slides.slideTo(0, 1000);
         this.slides.lockSwipes(true); //Lock swiping again to stop user from going through the quiz
     }

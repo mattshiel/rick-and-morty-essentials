@@ -141,6 +141,21 @@ export class QuizPage {
             this.rank = "gazorpazorp";
         }
 
+        else if(this.score == 3)
+        {
+            this.rank = "summer";
+        }
+
+        else if(this.score == 4)
+        {
+            this.rank = "beth";
+        }
+
+        else if(this.score == 5)
+        {
+            this.rank = "snuffles";
+        }
+
         else
         {
             this.rank = "rick";

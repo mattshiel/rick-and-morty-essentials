@@ -19,6 +19,27 @@ ionic serve --lab
 
 ## Usage
 
+**Initial Launch: Showcasing App Icon and Splashscreen**
+
+![](http://i.imgur.com/8GhrmG6.gif)
+
+
+**List Re-arrangment: Ability to move your favourite sounds wherever you want**
+
+
+![](http://i.imgur.com/eXmVNNN.gif)
+
+
+**Searchbar Capabilities**
+
+![](http://i.imgur.com/43A6u6q.gif)
+
+
+**A Quiz: Multiple choice quiz with card flip animations**
+
+
+![](http://i.imgur.com/9Wdihj1.gif)
+
 ## Credits
 
 Credits to **Jonizaak** for the great Rick and Morty font.

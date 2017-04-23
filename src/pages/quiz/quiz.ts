@@ -55,21 +55,10 @@ export class QuizPage {
  
     }
 
-    /*
-    This function is for randomising numbers
-
-    randomIntFromInterval(min,max)
-    {
-        return Math.floor(Math.random()*(max-min+1)+min); //
-    }
-    */
 
     //View is active
     ionViewDidEnter() 
     {
-        /*this.randomNum = this.randomIntFromInterval(0, 3);
-        this.mediaSong = this.media[this.randomNum];*/
-
         this.media = new MediaPlugin('/android_asset/www/assets/data/sounds/remix.mp3') //Creating an instance of the media plugin and setting the song for the quiz
     }
 
@@ -110,7 +99,7 @@ export class QuizPage {
     selectAnswer(answer, question)
     {
  
-        this.hasAnswered = true;
+        this.hasAnswered = true; 
         answer.selected = true;
         question.flashCardFlipped = true;
  
@@ -119,6 +108,7 @@ export class QuizPage {
             this.score++; //Incerement score by one everytime a correct answer is selected
         }
  
+        //Sets duration for speed of flashCard flipping animation
         setTimeout(() => {
             this.hasAnswered = false;
             this.nextSlide();
@@ -126,6 +116,7 @@ export class QuizPage {
             question.flashCardFlipped = false;
         }, 1500);
 
+        //Scoring System//
          if(this.score <= 0)
         {
             this.rank = "jerry";
@@ -161,44 +152,19 @@ export class QuizPage {
             this.rank = "rick";
         }
 
-        //Score system
-        /*if(this.score <= 0)
-        {
-            this.rank = "jerry";
-        }
-
-        else if(this.score > 0 && this.score <=2)
-        {
-            this.rank = "morty";
-        }
-
-        else if(this.score >=3 && this.score <=4)
-        {
-            this.rank = "beth";
-        }
-
-        else if(this.score >=5 && this.score <=7)
-        {
-            this.rank = "gazorpazorp";
-        }
-
-        else
-        {
-            this.rank = "rick";
-        }*/
     }
     
     //Randomises answers and returns array
     randomizeAnswers(rawAnswers: any[]): any[] {
  
         for (let i = rawAnswers.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * (i + 1));
-            let temp = rawAnswers[i];
-            rawAnswers[i] = rawAnswers[j];
-            rawAnswers[j] = temp;
+            let j = Math.floor(Math.random() * (i + 1)); //Create a random number between 1 and i
+            let temp = rawAnswers[i]; //Fill array
+            rawAnswers[i] = rawAnswers[j]; //Normal array becomes a randomised position
+            rawAnswers[j] = temp; 
         }
  
-        return rawAnswers;
+        return rawAnswers; //Array is returned with randomized answer
  
     }
     

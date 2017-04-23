@@ -23,6 +23,7 @@ export class QuizData {
             return Promise.resolve(this.data);
         }
  
+        //Taking that new Promise and specifying what is stored in data (The Quiz JSON)
         return new Promise(resolve => {
  
             this.http.get('assets/quiz-data/questions.json').map(res => res.json()).subscribe(data => {

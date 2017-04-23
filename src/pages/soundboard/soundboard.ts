@@ -15,12 +15,10 @@ export class SoundboardPage {
 
   /* EDIT THESE IF FILE PATHS CHANGE*/
   title: string = "Rick and Morty Soundboard";
-  url: string = "assets/data/soundfiles.html"; 
+  url: string = "assets/data/soundfiles.html"; //url for html file where the sounds are stored
   base_url: string = "assets/data";
   sounds_url: string = "assets/data/";
   
-  //media: MediaPlugin = new MediaPlugin('/android_asset/www/soundfiles/lick_my_balls.mp3');
-
   searchTerm: string = '';
   searchControl: FormControl;
   searching: any = false;
@@ -29,7 +27,11 @@ export class SoundboardPage {
 
 constructor(public http: Http, public alertCtrl: AlertController, private platform: Platform, public navCtrl: NavController, public dataService: Data) {
 
-    /*Pushes the sound title and file path to the array
+    /*
+    //This code block
+    //is to be used if expanding to iOS development.
+    //On Android, /android_asset/ is needed
+    //if using a get request from the www folder
     if (this.platform.is('android')) 
     {
         this.url = "/android_asset/www/" + this.url;
@@ -100,10 +102,11 @@ constructor(public http: Http, public alertCtrl: AlertController, private platfo
       this.sounds = this.dataService.filterItems(this.searchTerm);
   }
 
-  ionViewDidLoad()
+  ionViewDidLoad() //On first load of screen
   {
         this.setFilteredItems();
  
+        //Sets the debounce time for the form control (search control)
         this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
           
         this.searching = false;
@@ -112,6 +115,7 @@ constructor(public http: Http, public alertCtrl: AlertController, private platfo
         });
   }
 
+  //For when the user enters a search
    onSearchInput(){
       this.searching = true;
     }
@@ -127,13 +131,14 @@ constructor(public http: Http, public alertCtrl: AlertController, private platfo
   alert.present();
   }
 
+  //Plays the media plugin sound
   play(sound) 
   {
     try 
     {
       console.log(sound);
 
-      if(this.media) 
+      if(this.media) //If there is already media playing
       {
         this.media.pause();
       }

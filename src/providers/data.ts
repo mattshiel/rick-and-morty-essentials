@@ -57,7 +57,7 @@ constructor(public http: Http) {
  
 }
 
-  filterItems(searchTerm)
+  filterItems(searchTerm) //FIltering items, return to lower case as they are passed back to soundboard.ts
   {
       return this.sounds.filter((sound) => {
       return sound.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;

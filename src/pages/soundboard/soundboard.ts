@@ -91,11 +91,6 @@ constructor(public http: Http, public alertCtrl: AlertController, private platfo
     });     
  
   }
-  /*ionViewDidEnter() 
-  {
-    //this.media = new MediaPlugin('/android_asset/www/soundfiles/lick_my_balls.mp3');
-  }*/
-
    
   setFilteredItems()
   {

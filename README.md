@@ -6,8 +6,8 @@
 
 Assumes that Git is installed along with the prerequisites.
 ```
-git clone git@github.com:danielcregggmit/2nd-year-software-ionic-2-assignment-TheMattHatter.git
-cd 2nd-year-software-ionic-2-assignment-TheMattHatter
+git clone https://github.com/mattshiel/rick-and-morty-essentials.git
+cd rick-and-morty-essentials
 npm install
 ionic platform add ios
 ionic platform add android
